@@ -1,0 +1,20 @@
+package repository;
+
+import dto.StudentDto;
+
+public class Repository {
+
+        public static void main(String[] args) {
+            System.out.println("___________________________>Hello world");
+
+           var a= StudentDto.builder()
+                    .id("rol.1")
+                    .age(12)
+                    .address("ktm")
+                    .salary(10900f)
+                    .build();
+
+            System.out.println(a.toString());
+        }
+    }
+

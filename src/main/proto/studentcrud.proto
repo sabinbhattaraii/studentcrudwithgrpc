@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "studentcrud";
+option java_outer_classname = "Studentcrud";
+option objc_class_prefix = "HLW";
+
+package studentcrud;
+
+service StudentcrudService {
+  rpc fetch (GetStudentRequest) returns (GetAllResponse) {}
+  rpc insert (InsertStudentRequest) returns (SuccessMessage){}
+  rpc update (UpdateStudentRequest) returns (GetStudentResponse) {}
+  rpc delete (DeleteStudentRequest) returns (SuccessMessage) {}
+}
+
+message GetStudentResponse {
+  string id = 1;
+  string  fullName = 2;
+  int32 age = 3;
+  string address = 4;
+  float salary = 5;
+}
+message  GetAllResponse{
+  repeated GetStudentResponse request =1;
+}
+
+message GetStudentRequest{
+
+}
+
+message InsertStudentRequest {
+  string  fullName = 1;
+  int32 age = 2;
+  string address = 3;
+  float salary = 4;
+}
+
+message UpdateStudentRequest{
+  string id = 1;
+  string fullName = 2;
+  int32 age = 3;
+  string address = 4;
+  float salary = 5;
+}
+
+message SuccessMessage {
+  string message = 1;
+}
+
+message DeleteStudentRequest {
+  string id = 1;
+}
